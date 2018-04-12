@@ -3,8 +3,9 @@ from reportlab.graphics.shapes import *
 from reportlab.graphics.charts.lineplots import LinePlot
 from reportlab.graphics.charts.textlabels import Label
 from reportlab.graphics import renderPDF
-
-URL = 'ftp://ftp.swpc.noaa.gov/pub/weekly/Predict.txt'
+#The legacy url is not avalible,update it.
+#URL = 'ftp://ftp.swpc.noaa.gov/pub/weekly/Predict.txt'
+URL = 'http://services.swpc.noaa.gov/text/predicted-sunspot-radio-flux.txt'
 COMMENT_CHARS = '#:'
 
 
