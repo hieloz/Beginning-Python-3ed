@@ -1,7 +1,7 @@
 from nntplib import NNTP
 
-servername = 'news.foo.bar'
-group = 'comp.lang.python.announce'
+servername = 'web.aioe.org'
+group = 'comp.lang.python'
 server = NNTP(servername)
 howmany = 10
 
