@@ -13,10 +13,10 @@ class ChatSession(async_chat):
         # Standard setup tasks:
         async_chat. init (self, sock)
         self.server = server
-        self.set_terminator("\r\n")
+        self.set_terminator(("\r\n").encode())
         self.data = []
         # Greet the user:
-        self.push('Welcome to %s\r\n' % self.server.name)
+        self.push(('Welcome to %s\r\n' % self.server.name).encode())
 
     def collect_incoming_data(self, data):
         self.data.append(data)
@@ -28,7 +28,7 @@ class ChatSession(async_chat):
         """
         line = ''.join(self.data)
         self.data = []
-        self.server.broadcast(line)
+        self.server.broadcast(line.encode())
 
     def handle_close(self):
         async_chat.handle_close(self)
@@ -53,7 +53,7 @@ class ChatServer(dispatcher):
 
     def broadcast(self, line):
         for session in self.sessions:
-            session.push(line + '\r\n')
+            session.push((line + '\r\n').encode())
 
     def handle_accept(self):
         conn, addr = self.accept()
